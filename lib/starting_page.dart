@@ -1,9 +1,6 @@
 // ignore_for_file: must_call_super, prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, prefer_const_constructors_in_immutables
-import 'package:car_register_desktop/log_in_form.dart';
 import 'package:car_register_desktop/starting_form.dart';
 import 'package:flutter/material.dart';
-import 'package:simple_tooltip/simple_tooltip.dart';
-import 'package:window_size/window_size.dart';
 import 'dart:io';
 
 String hint_text =

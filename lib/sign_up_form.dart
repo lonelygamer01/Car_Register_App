@@ -1,6 +1,32 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, non_constant_identifier_names, avoid_print
 import 'package:car_register_desktop/starting_page.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
+
+class Users {
+  int? number_of_users;
+  List<User1>? user_1;
+  List<User2>? user_2;
+  List<User3>? user_3;
+}
+
+class User1 {
+  String? name;
+  String? user_name;
+  String? password;
+}
+
+class User2 {
+  String? name;
+  String? user_name;
+  String? password;
+}
+
+class User3 {
+  String? name;
+  String? user_name;
+  String? password;
+}
 
 class Sign_Up_Form extends StatefulWidget {
   const Sign_Up_Form({Key? key}) : super(key: key);
@@ -19,10 +45,29 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
     parent: _controller,
     curve: Curves.easeIn,
   );
+  final name = TextEditingController();
+  final username = TextEditingController();
+  final password = TextEditingController();
+  final password_again = TextEditingController();
   @override
   void dispose() {
     _controller.dispose();
+    name.dispose();
+    username.dispose();
+    password.dispose();
+    password_again.dispose();
     super.dispose();
+  }
+
+  print_data() {
+    if (password.text == password_again.text) {
+      print(name.text);
+      print(username.text);
+      print(password.text);
+      print(password_again.text);
+    } else {
+      print("The passwords given are not the same!");
+    }
   }
 
   @override
@@ -65,6 +110,7 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
                           width: 150,
                           height: 50,
                           child: TextField(
+                            controller: name,
                             style: TextStyle(fontSize: 20, color: Colors.white),
                             expands: false,
                             decoration: InputDecoration(
@@ -101,6 +147,7 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
                           width: 200,
                           height: 50,
                           child: TextField(
+                            controller: username,
                             style: TextStyle(fontSize: 20, color: Colors.white),
                             expands: false,
                             decoration: InputDecoration(
@@ -141,6 +188,7 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
                           width: 150,
                           height: 50,
                           child: TextField(
+                            controller: password,
                             obscureText: true,
                             style: TextStyle(fontSize: 20, color: Colors.white),
                             expands: false,
@@ -178,6 +226,7 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
                           width: 200,
                           height: 50,
                           child: TextField(
+                            controller: password_again,
                             obscureText: true,
                             style: TextStyle(fontSize: 20, color: Colors.white),
                             expands: false,
@@ -215,7 +264,9 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
                           side: BorderSide(
                               color: Color.fromARGB(255, 103, 7, 120),
                               width: 2)),
-                      onPressed: () {},
+                      onPressed: () {
+                        print_data();
+                      },
                       child: Row(
                         children: <Widget>[
                           Icon(
