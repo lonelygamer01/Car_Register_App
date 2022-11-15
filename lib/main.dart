@@ -2,11 +2,16 @@
 import 'package:car_register_desktop/starting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
-import 'package:window_manager/window_manager.dart';
 import 'dart:io';
 import 'dart:async';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
+    setWindowTitle("RegistR desktop v.1");
+    setWindowMinSize(const Size(1300, 900));
+    setWindowMaxSize(const Size(1300, 900));
+  }
   runApp(const Loading());
 }
 

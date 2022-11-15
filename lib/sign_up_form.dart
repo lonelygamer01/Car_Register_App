@@ -59,14 +59,24 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
     super.dispose();
   }
 
+  String error_message =
+      "The given passwords aren't matching, please correct it!";
+  String base_message = "";
+
   print_data() {
+    print(name.text);
+    print(username.text);
+    print(password.text);
+    print(password_again.text);
+  }
+
+  check_password_again() {
     if (password.text == password_again.text) {
-      print(name.text);
-      print(username.text);
-      print(password.text);
-      print(password_again.text);
+      print("Passwords are matching");
     } else {
-      print("The passwords given are not the same!");
+      setState(() {
+        base_message = error_message;
+      });
     }
   }
 
@@ -80,8 +90,8 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
           children: <Widget>[
             Container(
               padding: EdgeInsets.all(15),
-              height: 500,
-              width: 500,
+              height: 550,
+              width: 550,
               decoration: BoxDecoration(
                   color: Colors.black45,
                   borderRadius: BorderRadius.circular(20)),
@@ -265,7 +275,7 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
                               color: Color.fromARGB(255, 103, 7, 120),
                               width: 2)),
                       onPressed: () {
-                        print_data();
+                        check_password_again();
                       },
                       child: Row(
                         children: <Widget>[
@@ -283,6 +293,13 @@ class _Sign_In_FormState extends State<Sign_Up_Form>
                           )
                         ],
                       )),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  base_message,
+                  style: TextStyle(fontSize: 12, color: Colors.red),
                 ),
                 SizedBox(
                   height: 10,
