@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:window_size/window_size.dart';
 import 'dart:io';
 import 'dart:async';
+import 'package:firedart/firedart.dart';
 
+const apiKey = "AIzaSyD-FvdgYWGKwRM_Qx4R5W9fCXAvH4U5IlY";
+const projectId = "car-register-database";
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   if (Platform.isWindows || Platform.isLinux || Platform.isMacOS) {
@@ -12,6 +15,7 @@ void main() {
     setWindowMinSize(const Size(1300, 900));
     setWindowMaxSize(const Size(1300, 900));
   }
+  Firestore.initialize(projectId);
   runApp(const Loading());
 }
 
