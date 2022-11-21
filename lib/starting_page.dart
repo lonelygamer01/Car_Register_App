@@ -1,5 +1,5 @@
 // ignore_for_file: must_call_super, prefer_const_constructors, prefer_const_literals_to_create_immutables, camel_case_types, prefer_const_constructors_in_immutables, non_constant_identifier_names
-import 'package:firedart/firedart.dart';
+
 import 'package:flutter/material.dart';
 import 'admin_page.dart';
 
@@ -40,13 +40,6 @@ class _Starting_PageState extends State<Starting_Page>
   String blank_message = "";
   String success_message = "Registration completed!";
   String failed_message = "Incorrect username or password!";
-
-  print_data() {
-    print(name.text);
-    print(username.text);
-    print(password.text);
-    print(password_again.text);
-  }
 
   check_password_again() {
     if (password.text == password_again.text) {
@@ -110,8 +103,6 @@ class _Starting_PageState extends State<Starting_Page>
       password_again.clear();
     });
   }
-
-  CollectionReference user = Firestore.instance.collection('users');
 
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //the scaffold

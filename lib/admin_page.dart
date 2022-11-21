@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_constructors, camel_case_types, unnecessary_brace_in_string_interps, non_constant_identifier_names, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
+import 'new_car_reg_fields.dart';
 import 'starting_page.dart';
-import 'firebase_management.dart';
+import 'display_content.dart';
 
 String name = "Daniel";
 String gm = "Good morning";
@@ -230,7 +231,9 @@ class _Admin_PageState extends State<Admin_Page> with TickerProviderStateMixin {
                                           color:
                                               Color.fromARGB(255, 103, 7, 120),
                                           width: 2)),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    show_new_car();
+                                  },
                                   child: Row(
                                     children: <Widget>[
                                       Icon(
@@ -459,11 +462,115 @@ class _Admin_PageState extends State<Admin_Page> with TickerProviderStateMixin {
                               ),
                             )
                           ],
+                        )),
+                    Visibility(
+                        visible: new_car,
+                        child: Column(
+                          children: [
+                            SizedBox(height: 30),
+                            Container(
+                                padding: EdgeInsets.all(10),
+                                width: 900,
+                                height: 470,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    border: Border.all(
+                                        width: 3,
+                                        color:
+                                            Color.fromARGB(255, 103, 7, 120))),
+                                child: Column(
+                                  children: [
+                                    New_Car_Reg_Fields(),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Align(
+                                          alignment: Alignment.bottomLeft,
+                                          child: SizedBox(
+                                            height: 40,
+                                            width: 103,
+                                            child: OutlinedButton(
+                                                style: OutlinedButton.styleFrom(
+                                                    primary: Color.fromARGB(
+                                                        255, 103, 7, 120),
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    side: BorderSide(
+                                                        color: Color.fromARGB(
+                                                            255, 103, 7, 120),
+                                                        width: 2)),
+                                                onPressed: () {
+                                                  show_admin_page();
+                                                },
+                                                child: Row(
+                                                  children: <Widget>[
+                                                    Icon(
+                                                      Icons.arrow_back,
+                                                      color: Color.fromARGB(
+                                                          255, 103, 7, 120),
+                                                      size: 22,
+                                                    ),
+                                                    SizedBox(width: 10),
+                                                    Text(
+                                                      "Back",
+                                                      style: TextStyle(
+                                                          color: Color.fromARGB(
+                                                              255, 103, 7, 120),
+                                                          fontSize: 18),
+                                                    )
+                                                  ],
+                                                )),
+                                          ),
+                                        ),
+                                        SizedBox(width: 550),
+                                        Align(
+                                          alignment: Alignment.bottomRight,
+                                          child: SizedBox(
+                                            height: 40,
+                                            width: 103,
+                                            child: OutlinedButton(
+                                                style: OutlinedButton.styleFrom(
+                                                    primary: Color.fromARGB(
+                                                        255, 103, 7, 120),
+                                                    backgroundColor:
+                                                        Colors.transparent,
+                                                    side: BorderSide(
+                                                        color: Color.fromARGB(
+                                                            255, 103, 7, 120),
+                                                        width: 2)),
+                                                onPressed: () {},
+                                                child: Row(
+                                                  children: <Widget>[
+                                                    Icon(
+                                                      Icons.save_alt_outlined,
+                                                      color: Color.fromARGB(
+                                                          255, 103, 7, 120),
+                                                      size: 22,
+                                                    ),
+                                                    SizedBox(width: 10),
+                                                    Text(
+                                                      "Save",
+                                                      style: TextStyle(
+                                                          color: Color.fromARGB(
+                                                              255, 103, 7, 120),
+                                                          fontSize: 18),
+                                                    )
+                                                  ],
+                                                )),
+                                          ),
+                                        )
+                                      ],
+                                    )
+                                  ],
+                                )),
+                          ],
                         ))
                   ],
                 ),
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 5),
               Align(
                 alignment: Alignment.bottomLeft,
                 child: SizedBox(
@@ -485,7 +592,7 @@ class _Admin_PageState extends State<Admin_Page> with TickerProviderStateMixin {
                       child: Row(
                         children: <Widget>[
                           Icon(
-                            Icons.arrow_back,
+                            Icons.home,
                             color: Color.fromARGB(255, 103, 7, 120),
                             size: 22,
                           ),
